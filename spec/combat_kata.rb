@@ -8,6 +8,9 @@ class Character
     def receive_damage(attacker, damagePoints)
         # TODO: implement this functionality
         @health -= damagePoints
+        if @health == 0
+            @isAlive = false
+        end
     end
 
     def to_s

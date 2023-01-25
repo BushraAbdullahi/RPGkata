@@ -36,7 +36,10 @@ describe Character do
 
         end
 
-        it ''
+        it 'should not deal damage when a character attacks itself'do
+            character.receive_damage(character, damage_points)
+            expect(character.to_s).to eq "Name = Alice, Health = 1000, Alive? = true"
+        end
     
 
     end

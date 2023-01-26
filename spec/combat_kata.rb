@@ -4,6 +4,10 @@ class Character
         @health = health
         @isAlive = isAlive
     end
+    
+    def name
+        @name
+    end
 
     def receive_damage(attacker, damagePoints)
         # TODO: implement this functionality
@@ -43,6 +47,7 @@ class DealDamage < Move
 
     def to_s
         "This is the Printer you need to implement so that you can see what moves happen during combat"
+        "Name = #{@name}, Health = #{@health}, Alive? = #{@isAlive}"
     end
 end
 

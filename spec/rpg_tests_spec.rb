@@ -1,17 +1,4 @@
 require 'combat_kata'
-# Damage and Health
-
-# how do we interact with this function? Inputs and Outputs?
-# health starts at 1000
-# Start with Alive, can be Dead
-# When are magical objects (Healing and Weapons) available to our characters - after a certain amount time?
-# Track time passing with input to function, count the number of inputs (i.e. after 10, then make random object available)
-
-# describe "Damage and Health" do
-#     it "when character is level 1, their health is a max of 1000"
-#     end
-# end
-
 
 describe Character do
     describe 'receive_damage' do
@@ -40,8 +27,20 @@ describe Character do
             character.receive_damage(character, damage_points)
             expect(character.to_s).to eq "Name = Alice, Health = 1000, Alive? = true"
         end
-    
+    end
+end
 
+describe DealDamage do
+    describe 'deal damage' do
+        let(:attacker) { Character.new("Bushra", 1000, true) }
+        let(:defender) { Character.new("Megan", 1000, true) }
+        let(:dealdamage) {DealDamage.new("Bushra", "Megan", 50)}
+
+        
+        it 'should allow the attacker to deal damage to the defender' do
+            dealdamage.play(attacker)
+            expect(defender.to_s).to eq "Name = Megan, Health = 950, Alive? = true"
+        end
     end
 end
 

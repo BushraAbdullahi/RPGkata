@@ -38,7 +38,7 @@ describe DealDamage do
 
         
         it 'should allow the attacker to deal damage to the defender' do
-            dealdamage.play(attacker)
+            dealdamage.play(attacker, defender)
             expect(defender.to_s).to eq "Name = Megan, Health = 950, Alive? = true"
         end
     end

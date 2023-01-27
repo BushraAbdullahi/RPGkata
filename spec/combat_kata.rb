@@ -38,10 +38,9 @@ class DealDamage < Move
         @defender_name = defender_name
         @damagePoints = amount
     end
-
-    def play(characters)
-        attacker = characters[@attacker_name]
-        defender = characters[@defender_name]
+    
+# translate play method from the original python code
+    def play({  })
         defender.receive_damage(attacker, @damagePoints)
     end
 
@@ -54,3 +53,4 @@ end
 def play(characters, move)
     move.play(characters)
 end
+

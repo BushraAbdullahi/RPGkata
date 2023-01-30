@@ -36,12 +36,14 @@ describe DealDamage do
         let(:defender) { Character.new("Megan", 1000, true) }
         let(:dealdamage) {DealDamage.new("Bushra", "Megan", 50)}
 
-        
+        let(:characters) {{ "Bushra": attacker, "Megan": defender}}
+      
         it 'should allow the attacker to deal damage to the defender' do
-            dealdamage.play(attacker, defender)
+            dealdamage.play(characters)
             expect(defender.to_s).to eq "Name = Megan, Health = 950, Alive? = true"
         end
     end
 end
+
 
 

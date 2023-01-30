@@ -40,8 +40,10 @@ class DealDamage < Move
     end
     
 # translate play method from the original python code
-    def play({  })
-        defender.receive_damage(attacker, @damagePoints)
+    def play(characters)
+        attacker = characters[@attacker_name]
+        defender = characters[@defender_name]
+        defender.receive_damage(attacker, @damage_points)
     end
 
     def to_s
@@ -53,4 +55,3 @@ end
 def play(characters, move)
     move.play(characters)
 end
-

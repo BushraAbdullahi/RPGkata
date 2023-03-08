@@ -27,6 +27,7 @@ Dead characters cannot heal
 ## Factions
 1. Characters may belong to one or more Factions.
     * Newly created Characters belong to no Faction.
+    
 2. A Character may Join or Leave one or more Factions.
 
 3. Players belonging to the same Faction are considered Allies.

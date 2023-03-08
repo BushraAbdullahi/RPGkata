@@ -12,9 +12,20 @@ class Character
     def isAlive 
         @isAlive
     end
- 
+
+    def heal_itself
+        @health = 1000
+    end
+
     def receive_damage(attacker, damagePoints)
-        # TODO: implement this functionality
+        if self != attacker
+            if (damagePoints > @health)
+                @health = 0
+                @isAlive = false
+            else
+                @health -= damagePoints
+            end
+        end
     end
 
     def to_s

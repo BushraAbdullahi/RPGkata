@@ -21,7 +21,36 @@ describe 'dealing_damage' do
         alice = Character.new("Alice")
         bob = Character.new("Bob")
         expect(alice.health).to be 1000
-        alice.receive_damage(bob,50)
+        expect(alice.receive_damage(bob,50)).to be 950
         expect(alice.health).to be 950
+    end
+
+    it 'When damage received exceeds current Health, Health becomes 0 and the character dies' do
+        alice = Character.new("Alice")
+        bob = Character.new("Bob")
+        alice.receive_damage(bob,2000)
+        expect(alice.health).to be 0
+        expect(alice.isAlive).to be false
+    end
+
+    it "When the damage equals the current health, the character should still be alive" do
+        alice = Character.new("Alice")
+        bob = Character.new("Bob")
+        alice.receive_damage(bob,1000)
+        expect(alice.health).to be 0
+        expect(alice.isAlive).to be true
+    end
+
+    it "A Character cannot Deal Damage to itself" do
+        alice = Character.new("Alice")
+        alice.receive_damage(alice,100)
+        expect(alice.health).to be 1000
+    end
+
+    it "A Character can Heal themselves" do
+        alice = Character.new("Alice")
+        alice.receive_damage(alice,100)
+        alice.heal_itself
+        expect(alice.health).to be 1000
     end
 end

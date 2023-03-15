@@ -1,4 +1,4 @@
-require 'combat_kata_2'
+require_relative  '../combat_kata'
 
 describe 'making_characters' do
     it 'should exist when I make one (ie. not be null or something)' do
@@ -53,4 +53,13 @@ describe 'dealing_damage' do
         alice.heal_itself
         expect(alice.health).to be 1000
     end
+
+    it "A dead character cannot heal themselves" do
+        alice = Character.new("Alice")
+        bob = Character.new("Bob")
+        alice.receive_damage(bob,1001)
+        alice.heal_itself
+        expect(alice.health).to be 0
+    end
+
 end

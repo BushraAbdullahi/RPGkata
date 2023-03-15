@@ -1,27 +1,42 @@
 class Character
-    def initialize(name, health, isAlive)
+    def initialize(name)
         @name = name
-        @health = health
-        @isAlive = isAlive
+        @health = 1000
+        @isAlive = true
+        @level = 1
     end
-    
-    def name
-        @name
+
+    def health 
+        @health
+    end
+
+    def level 
+        @level
+    end
+
+    def isAlive 
+        @isAlive
+    end
+
+    def heal_itself
+        if self.isAlive == true
+            @health = 1000
+        end
     end
 
     def receive_damage(attacker, damagePoints)
-        # TODO: implement this functionality
-        if attacker.name != @name
-            @health -= damagePoints
-        end
-        if @health == 0
-            @isAlive = false
+        if self != attacker
+            if (damagePoints > @health)
+                @health = 0
+                @isAlive = false
+            else
+                @health -= damagePoints
+            end
         end
     end
 
     def to_s
         # "This is the Printer you need to implement so that you can see what happens to a character during combat"
-        "Name = #{@name}, Health = #{@health}, Alive? = #{@isAlive}"
     end
 end
 
@@ -47,8 +62,7 @@ class DealDamage < Move
     end
 
     def to_s
-        "This is the Printer you need to implement so that you can see what moves happen during combat"
-        "Name = #{@name}, Health = #{@health}, Alive? = #{@isAlive}"
+        # This is the Printer you need to implement so that you can see what moves happen during combat
     end
 end
 

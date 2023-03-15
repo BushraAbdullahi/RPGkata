@@ -10,8 +10,16 @@ class Character
         @health
     end
 
-    def level 
+    def level
         @level
+    end
+
+    def setLevel(level)
+        @level = level
+        if level >= 6 
+            @health = 1500
+        end
+
     end
 
     def isAlive 

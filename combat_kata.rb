@@ -32,13 +32,25 @@ class Character
         end
     end
 
+    def calculateDamageFromAttacker(attacker,points)
+        if (self.level - attacker.level <= -5)
+            points = points*1.5
+        elsif (self.level - attacker.level >= 5)
+            points = points*0.5
+        end
+        @health = @health-points.to_i
+        
+    end
+
     def receive_damage(attacker, damagePoints)
+        
         if self != attacker
             if (damagePoints > @health)
                 @health = 0
                 @isAlive = false
+ 
             else
-                @health -= damagePoints
+                @health = calculateDamageFromAttacker(attacker,damagePoints)
             end
         end
     end

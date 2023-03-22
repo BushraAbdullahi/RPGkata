@@ -25,5 +25,13 @@ describe "character levels" do
         alice.receive_damage(bob,100)
         expect(alice.health).to be 1450
     end
+
+    it "If the target is 5 or more Levels below the attacker, Damage is increased by 50%" do
+        alice = Character.new("Alice")
+        bob = Character.new("Bob")
+        bob.setLevel(6)
+        alice.receive_damage(bob,100)
+        expect(alice.health).to be 850
+    end
 end
 

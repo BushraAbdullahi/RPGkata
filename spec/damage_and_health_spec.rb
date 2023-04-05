@@ -8,6 +8,7 @@ describe 'making_characters' do
     it 'should have a health of 1000 when a character is created' do
         bob = Character.new("Bob")
         expect(bob.health).to eq 1000
+        expect(bob.max_health).to eq 1000
     end
     it 'should be alive when a character is created' do
         bob = Character.new("Bob")

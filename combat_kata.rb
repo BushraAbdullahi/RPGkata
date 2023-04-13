@@ -133,3 +133,25 @@ end
 def play(characters, move)
     move.play(characters)
 end
+
+class MagicalObject
+    def initialize(name)
+        @name = name
+        @max_health = 1000
+        @health = @max_health
+    end
+
+    
+    def health
+        @health
+    end
+
+    def max_health
+        @max_health
+    end
+
+    def setHealth(health)
+        @health = health
+    end
+    
+end 
